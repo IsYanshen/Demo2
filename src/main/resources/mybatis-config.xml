@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--<settings>
+        &lt;!&ndash;当返回行的所有列都是空时，MyBatis默认返回null&ndash;&gt;
+        <setting name="returnInstanceForEmptyRow" value="true"/>
+    </settings>-->
+
+    <environments default="development">
+
+        <environment id="development">
+            <!--使用了 JDBC 的提交和回滚设置，它依赖于从数据源得到的连接来管理事务作用域-->
+            <transactionManager type="JDBC"/>
+            <!--使用数据池，复用实例-->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/student"/>
+                <property name="username" value="root"/>
+                <property name="password" value="123456"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <mapper resource="Mapper.xml"></mapper>
+    </mappers>
+</configuration>
